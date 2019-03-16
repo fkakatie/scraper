@@ -14,6 +14,7 @@ var StorySchema = new Schema({
     summary: {
         type: String,
         trim: true,
+        required: true
     },
     // URL - the url to the original article
     link: {
@@ -21,7 +22,23 @@ var StorySchema = new Schema({
         trim: true,
         required: true
     },
+    source: {
+        type: String,
+        required: true,
+    },
     // Feel free to add more content to your database (photos, bylines, and so on).
+    image: {
+        type: String,
+        trim: true
+    },
+    author: {
+        type: String,
+        trim: true
+    },
+    date: {
+        type: Date,
+        trim: true
+    },
     comment: {
         type: Schema.Types.ObjectId,
         ref: "Comment"
