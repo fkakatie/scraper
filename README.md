@@ -20,6 +20,8 @@ This web app lets users view ~~and leave comments on~~ the latest Dwayne Johnson
   - Partial is built for this in Handlebars. I need to figure out how to dynamically set the the partial view based on user click. Something like `{{> comments id={{_id}}}}`...
 - [ ] Allow users to delete comments
     - I need some way to verify identity, but maybe I'm overthinking this.
+- [ ] Build media queries
+    - I know I could do this fairly quickly, but I need to stop distracting myself with the front-end until I finish the back-end.
 
 ## Who maintains this project ## 
 
