@@ -1,32 +1,32 @@
 <div id="stories">
     <div class="story-sizer"></div>
     {{#each stories}}
-        <div class="story" data-id="{{_id}}">
+    <div class="story" data-id="{{_id}}">
 
-            <a href="{{link}}" target="_blank"><img src="{{image}}" alt="{{headline}}" class="story-img" /></a>
+        <a href="{{link}}" target="_blank"><img src="{{image}}" alt="{{headline}}" class="story-img" /></a>
 
-            <div class="story-body">
-                <h2><a href="{{link}}" target="_blank">
+        <div class="story-body">
+            <h2><a href="{{link}}" target="_blank">
                     {{headline}}
                 </a></h2>
-                <p>{{summary}}</p>
+            <p>{{summary}}</p>
 
-                <div class="story-attr">
-                    <span>By {{author}} @ </span>
-                    <a href="{{source}}">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e9/GQ_Logo.svg/200px-GQ_Logo.svg.png" 
+            <div class="story-attr">
+                <span>By {{author}} @ </span>
+                <a href="{{source}}">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e9/GQ_Logo.svg/200px-GQ_Logo.svg.png"
                         alt="{{headline}}" class="story-src" />
-                    </a>
-                </div>
-
-            </div>
-
-            <div class="btn-grid">
-                <a href="{{link}}" target="_blank" class="story-btn">Read More</a>
-                <button class="comment-btn" data-id="{{_id}}">Comment</button>
+                </a>
             </div>
 
         </div>
+
+        <div class="btn-grid">
+            <a href="{{link}}" target="_blank" class="story-btn">Read More</a>
+            <button class="comment-btn" data-id="{{_id}}">Comment</button>
+        </div>
+
+    </div>
     {{/each}}
 </div>
 
@@ -36,6 +36,21 @@
             <h2 id="modal-title"></h2>
             <span id="modal-close"><i class="fas fa-times"></i></span>
         </div>
-
+        <div class="modal-body">
+            {{> comments}}
+        </div>
+        <div class="modal-form">
+            <form>
+                <div class="form-field">
+                    <label for="username">Username</label>
+                    <input type="text" id="username" placeholder="Anonymous" />
+                </div>
+                <div class="form-field">
+                    <label for="message">Comment</label>
+                    <textarea id="message"></textarea>
+                </div>
+                <button type="submit" id="comment-btn">Leave a Comment</button>
+            </form>
+        </div>
     </div>
 </div>

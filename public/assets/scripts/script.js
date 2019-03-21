@@ -17,6 +17,7 @@ $(document).ready(function() {
 
     $('#stories').on('click', '.comment-btn', function() {
         var thisId = $(this).attr('data-id');
+        $('#comment-btn').attr('data-id', thisId);
         $.ajax({
             method: 'GET',
             url: '/stories/' + thisId
@@ -24,9 +25,33 @@ $(document).ready(function() {
         .then(function(data) {
             console.log(data);
             $('#modal-overlay').css('display', 'block');
-            $('#modal-title').text(data.headline);
+            $('#modal-title').text(data.headline + ' Comments');
         })
 
+    })
+
+    $('#comment-btn').on('click', function(event) {     
+        var thisId = $(this).attr('data-id');
+        var username = $('#username').val().trim() || 'Anonymous';
+        var message = $('#message').val().trim();
+
+        if (message) {
+            $.ajax({
+                method: 'POST',
+                url: '/stories/' + thisId,
+                data: {
+                    username: username,
+                    message: message
+                }
+            })
+            .then(function(data) {
+                console.log(data);
+                event.preventDefault();
+            })
+        } else {
+            alert('Comment can\'t be empty!');
+            event.preventDefault();
+        }
     })
 
 })
