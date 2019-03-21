@@ -39,10 +39,10 @@ var StorySchema = new Schema({
         type: Date,
         trim: true
     },
-    comment: {
+    comment: [{
         type: Schema.Types.ObjectId,
         ref: "Comment"
-    }
+    }]
 });
 
 var Story = mongoose.model("Story", StorySchema);

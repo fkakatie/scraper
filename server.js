@@ -76,8 +76,9 @@ app.get('/stories', function(req, res) {
 app.get('/stories/:id', function(req, res) {
     db.Story.findOne({ _id: req.params.id })
         .populate('comment')
-        .then(function(dbStory) {
-            res.json(dbStory);
+        .then(function(dbComment) {
+            console.log(dbComment);
+            res.json(dbComment);
         })
         .catch(function(err) {
             res.json(err);
@@ -87,7 +88,12 @@ app.get('/stories/:id', function(req, res) {
 app.post('/stories/:id', function(req, res) {
     db.Comment.create(req.body)
         .then(function(dbComment) {
-            return db.Story.findOneAndUpdate({ _id: req.params.id }, { note: dbComment._id }, {new: true });
+            console.log(dbComment);
+            db.Story.update({ _id: req.params.id }, { $push: { comment: dbComment._id } }, { new: true })
+            .then(function(response) {
+                // res.render('index', { stories: dbStory })
+                res.send(response);
+            })
         })
         .catch(function(err) {
             res.json(err);

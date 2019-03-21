@@ -1,14 +1,14 @@
 <div id="stories">
     <div class="story-sizer"></div>
     {{#each stories}}
-        <div class="story" data-id"{{_id}}">
+        <div class="story" data-id="{{_id}}">
 
             <a href="{{link}}" target="_blank"><img src="{{image}}" alt="{{headline}}" class="story-img" /></a>
 
             <div class="story-body">
                 <h2><a href="{{link}}" target="_blank">
-                        {{headline}}
-                    </a></h2>
+                    {{headline}}
+                </a></h2>
                 <p>{{summary}}</p>
 
                 <div class="story-attr">
@@ -23,9 +23,19 @@
 
             <div class="btn-grid">
                 <a href="{{link}}" target="_blank" class="story-btn">Read More</a>
-                <button class="comment-btn" data-id="{{_id}}">Comment</p>
+                <button class="comment-btn" data-id="{{_id}}">Comment</button>
             </div>
 
         </div>
     {{/each}}
+</div>
+
+<div id="modal-overlay">
+    <div class="modal">
+        <div class="modal-header">
+            <h2 id="modal-title"></h2>
+            <span id="modal-close"><i class="fas fa-times"></i></span>
+        </div>
+
+    </div>
 </div>
