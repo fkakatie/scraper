@@ -100,6 +100,20 @@ app.post('/stories/:id', function(req, res) {
         })
 });
 
+app.get('/remove/:id', function(req, res) {
+    console.log(req);
+    db.Comment.remove({ _id: req.params.id })
+        .then(function(err, response) {
+            if (err) {
+                console.log(err);
+                res.send(err);
+            } else {
+                console.log(response);
+                res.send(response);
+            }
+        })
+})
+
 app.listen(PORT, function() {
     console.log('\nAPP RUNNING ON');
     console.log('http://localhost:' + PORT + '\n');

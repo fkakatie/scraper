@@ -1,0 +1,17 @@
+@media screen and (max-width: 414px) {
+
+    /*
+    ==============================
+    STORY
+    ==============================
+    */
+
+    .story-sizer {
+        width: 100%;
+    }
+
+    .story {
+        width: 100%;
+    }
+
+}
