@@ -1,4 +1,4 @@
-/*
+/* 
 ==============================
 BASIC SETUP
 ==============================
@@ -66,15 +66,13 @@ STORY
 */
 
 .story-sizer {
-    width: calc(50% - 7.5px);
+    width: calc(33.3333% - 15px);
 }
 
 .story {
-    width: calc(50% - 7.5px);
+    width: calc(33.3333% - 15px);
     float: left;
-    /* border: 1px solid #ccc; */
     background: #efefef;
-    /* padding: 15px; */
     margin-bottom: 15px;
     border-radius: 0 0 8px 8px;
 }
@@ -119,6 +117,7 @@ STORY
     color: #888;
 }
 
+footer .story-src,
 .story .story-src {
     height: 9px;
     width: auto;
@@ -126,6 +125,7 @@ STORY
     transition: 0.5s;
 }
 
+footer .story-src, 
 .story .story-src:hover {
     filter:grayscale(0);
 }
@@ -188,6 +188,8 @@ MODAL
     width: 80%;
     margin: 0 auto;
     border-radius: 0 0 15px 15px;
+    height: auto;
+    max-height: 80%;
 }
 
 .modal .modal-header {
@@ -203,14 +205,20 @@ MODAL
     font-size: 1.2em;
 }
 
+.modal #modal-close {
+    padding-left: 8px;
+    transition: 0.5s;
+}
+
 .modal #modal-close:hover {
+    color: #f33;
     cursor: pointer;
 }
 
 .modal #modal-comments {
     padding: 15px 0;
     height: 100%;
-    max-height: 300px;
+    max-height: 200px;
     overflow-y: auto;
 }
 
@@ -295,10 +303,17 @@ footer {
     color: #888;
     padding: 15px 0;
     font-size: 0.8em;
-    text-align: right;
+    /* text-align: right; */
+}
+
+footer .container {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    grid-gap: 8px;
 }
 
 footer span {
     font-family: 'Rubik', sans-serif;
     font-weight: 300;
+    text-transform: uppercase;
 }
