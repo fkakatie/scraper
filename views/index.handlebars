@@ -23,7 +23,7 @@
 
         <div class="btn-grid">
             <a href="{{link}}" target="_blank" class="story-btn">Read More</a>
-            <button class="comment-btn" data-id="{{_id}}">Comment</button>
+            <button class="comment-btn" data-id="{{_id}}">Comments</button>
         </div>
 
     </div>
@@ -36,8 +36,7 @@
             <h2 id="modal-title"></h2>
             <span id="modal-close"><i class="fas fa-times"></i></span>
         </div>
-        <div class="modal-body">
-            {{> comments}}
+        <div class="modal-body" id="modal-comments">
         </div>
         <div class="modal-form">
             <form>

@@ -20,6 +20,12 @@ body, button, form, input, textarea {
     color: #fff;
 }
 
+hr {
+    border: 1px solid #ccc;
+    width: 100%;
+    margin: 1em 0;
+}
+
 /*
 ==============================
 HEADER
@@ -189,6 +195,7 @@ MODAL
     justify-content: space-between;
     grid-template-columns: 1fr auto;
     padding: 15px;
+    background: #efefef;
 }
 
 .modal .modal-header h2 {
@@ -198,6 +205,47 @@ MODAL
 
 .modal #modal-close:hover {
     cursor: pointer;
+}
+
+.modal #modal-comments {
+    padding: 15px 0;
+    height: 100%;
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+.modal #modal-comments p {
+    padding: 0 15px;
+}
+
+.modal #modal-comments .comment-username {
+    color: #666;
+    font-style: italic;
+    font-size: 0.8em;
+    padding-bottom: 4px;
+}
+
+.modal .modal-comment {
+    position: relative;
+}
+
+.modal .modal-comment .comment-delete {
+    position: absolute;
+    top: 0;
+    right: 15px;
+    color: #666;
+    transition: 0.5s;
+}
+
+.modal .modal-comment .comment-delete:hover {
+    color: #f33;
+    cursor: pointer;
+}
+
+.modal .modal-form {
+    background: #efefef;
+    border-radius: 0 0 15px 15px;
+    padding-top: 8px;
 }
 
 .modal .modal-form .form-field {

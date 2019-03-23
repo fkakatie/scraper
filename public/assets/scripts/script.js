@@ -1,6 +1,4 @@
 $(document).ready(function() {
-    
-    console.log('linked and loaded');
 
     $('#stories').masonry({
         // options
@@ -23,9 +21,23 @@ $(document).ready(function() {
             url: '/stories/' + thisId
         })
         .then(function(data) {
-            console.log(data);
             $('#modal-overlay').css('display', 'block');
             $('#modal-title').text(data.headline + ' Comments');
+
+            $('#modal-comments').empty(); // clear previous comments
+
+            data.comment.reverse().forEach(function(comment) {
+                $('#modal-comments').append(
+                    `<div class="modal-comment" data-id=${comment._id}>
+                        <p class="comment-username">${comment.username} wrote:</p>
+                        <p class="comment-message">${comment.message}</p>
+                    <i class="fas fa-times-circle comment-delete" data-id=${comment._id}></i>
+                    <hr />
+                    </div>
+                    `
+                )
+            })
+
         })
 
     })
@@ -45,13 +57,24 @@ $(document).ready(function() {
                 }
             })
             .then(function(data) {
-                console.log(data);
-                event.preventDefault();
+                console.log("Comment posted!");
             })
         } else {
             alert('Comment can\'t be empty!');
             event.preventDefault();
         }
+    })
+
+    $('#modal-comments').on('click', '.comment-delete', function() {
+        var thisId = $(this).attr('data-id');
+        $.ajax({
+            type: 'GET',
+            url: '/remove/' + thisId
+        })
+        .then(function(data) {
+            $('.modal-comment [data-id=' + thisId + ']').parent().remove();
+            console.log('Something was removed?');
+        })
     })
 
 })
