@@ -17,6 +17,10 @@ This web app lets users view and leave comments on the latest Dwayne Johnson new
 3. **Delete a comment**.
     - Select the "X" icon to delete any comments and remove them from the database.
 
+## Where users can get help with this project ## 
+
+If you have any questions about this project (or just want to talk about Dwayne), visit my portfolio and [send me a message](https://fkakatie.github.io/contact).
+
 ## Who maintains this project ## 
 
 This project is painstakingly maintained by me, @[fkakatie](https://github.com/fkakatie). Thanks for checking it out.
